@@ -6,7 +6,7 @@ public class NewBehaviourScript : MonoBehaviour
 {
     void Start()
     {
-        
+        GetComponent<Rigidbody2D>().freezeRotation = true;
     }
 
     void Update()
