@@ -1,0 +1,4 @@
+﻿Id,Name,Art,IntegrityPoints,Value,Weight,HpMod,MpMod,SpeedMod,DropText
+1,Fleece of Yendor,Items_01,,3000,10,100,100,0,"But, I don't want to lose my cozy fleece…"
+2,Vorpal Blade,Items_02,100,2000,20,0,50,10,This sword saved my life so many times. I don't know if I can bring myself to part with it…
+3,Klappa Vestibul,Items_03,,0,0,0,0,0,
