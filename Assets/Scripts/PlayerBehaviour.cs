@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    public int HP, MP, Speed;
+    public int HP = 100, MP = 100, Speed = 100;
+    private Rigidbody2D rb;
 
     void Start()
     {
-        GetComponent<Rigidbody2D>().freezeRotation = true;
+        rb = GetComponent<Rigidbody2D>();
+        rb.freezeRotation = true;
     }
 
     void Update()
