@@ -1,19 +1,21 @@
-﻿using Data.Model;
+﻿using System.IO;
+using Data.Model;
 using UnityEngine;
+using System.Linq;
+using CsvHelper;
 
 namespace Data
 {
     public class Reader
     {
         public void read() {
-            /*
-            var engine = new FileHelperEngine<Item>();
-    
-            // To Read Use:
-            var result = engine.ReadFile("Assets/Data/items.csv");
-            // result is now an array of Items
-            Debug.Log(string.Join("\n", (object[]) result));
-            */
+            using (var reader = new StreamReader("Assets/Data/items.csv")) {
+                using (var csv = new CsvReader(reader)) {
+                    var records = csv.GetRecords<Item>();
+                    records.ToList().ForEach(r => Debug.Log(r));
+//                    Debug.Log(string.Join("\n", records));
+                }
+            }
         }
     }
 }
