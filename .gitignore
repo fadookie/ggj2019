@@ -50,3 +50,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# Mac custom attributes file
+.DS_Store
+
