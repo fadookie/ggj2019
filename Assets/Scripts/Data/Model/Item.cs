@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using CsvHelper.Configuration.Attributes;
 
 namespace Data.Model
@@ -16,6 +16,8 @@ namespace Data.Model
         public int MpMod { get; set; }
         public int SpeedMod { get; set; }
         public string DropText { get; set; }
+
+        public Stats Stats => new Stats(HpMod, MpMod, SpeedMod);
 
         public override string ToString() {
             return $"{nameof(Id)}: {Id}, {nameof(Name)}: {Name}, {nameof(Art)}: {Art}, {nameof(IntegrityPoints)}: {IntegrityPoints}, {nameof(Value)}: {Value}, {nameof(Weight)}: {Weight}, {nameof(DropText)}: {DropText}";
