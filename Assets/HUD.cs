@@ -1,18 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float HP, MP, Speed;
+    private Text hpText, mpText, speedText;
     void Start()
     {
-        
+        hpText = transform.Find("HPvalue").gameObject.GetComponent<Text>();
+        mpText = transform.Find("MPvalue").gameObject.GetComponent<Text>();
+        speedText = transform.Find("Speedvalue").gameObject.GetComponent<Text>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        hpText.text = HP.ToString();
+        mpText.text = MP.ToString();
+        speedText.text = Speed.ToString();
     }
 }
