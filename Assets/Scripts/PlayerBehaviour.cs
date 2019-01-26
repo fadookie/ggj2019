@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    public int HP, MP, Speed;
+
     void Start()
     {
         GetComponent<Rigidbody2D>().freezeRotation = true;

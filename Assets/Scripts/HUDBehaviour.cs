@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HUD : MonoBehaviour
+public class HUDBehaviour : MonoBehaviour
 {
-    public float HP, MP, Speed;
+    public PlayerBehaviour playerBehaviour;
     private Text hpText, mpText, speedText;
     void Start()
     {
@@ -16,8 +16,8 @@ public class HUD : MonoBehaviour
 
     void Update()
     {
-        hpText.text = HP.ToString();
-        mpText.text = MP.ToString();
-        speedText.text = Speed.ToString();
+        hpText.text = playerBehaviour.HP.ToString();
+        mpText.text = playerBehaviour.MP.ToString();
+        speedText.text = playerBehaviour.Speed.ToString();
     }
 }
