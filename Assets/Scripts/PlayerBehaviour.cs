@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    public int HP, MP, Speed;
+
     void Start()
     {
         GetComponent<Rigidbody2D>().freezeRotation = true;
@@ -11,7 +13,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Update()
     {
-        float speed = 0.1f;
+        float speed = Speed * 0.05f * Time.deltaTime;
         Vector3 pos = new Vector3();
         if (Input.GetKey(KeyCode.D))
             pos.x += speed;
