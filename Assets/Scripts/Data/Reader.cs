@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using Data.Model;
 using UnityEngine;
 using System.Linq;
@@ -8,12 +9,13 @@ namespace Data
 {
     public class Reader
     {
-        public void read() {
+        public List<Item> read() {
             using (var reader = new StreamReader("Assets/Data/items.csv")) {
                 using (var csv = new CsvReader(reader)) {
                     var records = csv.GetRecords<Item>();
-                    records.ToList().ForEach(r => Debug.Log(r));
-//                    Debug.Log(string.Join("\n", records));
+                    var items = records.ToList();
+                    items.ForEach(r => Debug.Log(r));
+                    return items;
                 }
             }
         }
