@@ -19,10 +19,12 @@ public class PlayerBehaviour : MonoBehaviour
   
     void Start()
     {
-        GameDataManager.instance.playerObject = gameObject;
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
+
+        if (GameDataManager.instance)
+            GameDataManager.instance.playerObject = gameObject;
     }
 
     void UpdateAnimation(Vector2 direction)
