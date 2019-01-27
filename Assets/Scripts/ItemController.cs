@@ -12,7 +12,7 @@ public class ItemController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    button.onClick.AddListener(OpenInfo);
+     button.onClick.AddListener(OpenInfo);
     }
 
     // Update is called once per frame

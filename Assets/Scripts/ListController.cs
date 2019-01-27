@@ -9,6 +9,7 @@ public class ListController : MonoBehaviour
   public GameObject itemPrefab;
   public Sprite testTexture;
   public GameObject content;
+  public GameObject trash;
 
   public ListController() {
     Items = new ArrayList();

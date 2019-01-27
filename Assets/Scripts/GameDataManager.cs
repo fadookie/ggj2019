@@ -10,8 +10,9 @@ public class GameDataManager : MonoBehaviour
     public List<Item> AllItems;
     public Player Player;
     
-    // Start is called before the first frame update
-    void Start() {
+    private int nextId;
+    
+    void Awake() {
         var reader = new Reader();
         var items = reader.read();
         AllItems = items;
@@ -22,11 +23,30 @@ public class GameDataManager : MonoBehaviour
         items.ForEach(Debug.Log);
 
         Debug.Log(string.Format("Player: {0}", Player));
+        
+        PopulatePlayerInventory();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void PopulatePlayerInventory() {
+        for (var i = 0; i < 10; ++i) {
+            Player.Inventory.Add(GenerateTestItem());
+        }
+        foreach (var slot in Player.AllItemSlots) {
+            slot.Value = GenerateTestItem();
+        }
+    }
+
+    public Item GenerateTestItem() {
+        var item = new Item {
+            Id = nextId,
+            Name = $"Item {nextId}",
+            Value = nextId,
+            Weight = nextId,
+            HpMod = nextId,
+            MpMod = nextId,
+            SpeedMod = nextId,
+        };
+        ++nextId;
+        return item;
     }
 }

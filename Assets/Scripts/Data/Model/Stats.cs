@@ -26,5 +26,9 @@
         public Stats Add(Stats s2) {
             return new Stats(Hp + s2.Hp, Mp + s2.Mp, Speed + s2.Speed);
         } 
+        
+        public override string ToString() {
+            return $"{nameof(Hp)}: {Hp}, {nameof(Mp)}: {Mp}, {nameof(Speed)}: {Speed}";
+        }
     }
 }
