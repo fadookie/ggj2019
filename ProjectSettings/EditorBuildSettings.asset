@@ -5,31 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-<<<<<<< HEAD
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Scenes/Test.unity
-    guid: 086f1b9236ac04b94a447aaa4195434a
-  - enabled: 1
-    path: Assets/Scenes/inventoryUI.unity
-    guid: d3063d5b9a6a05241a1d69435d9c0be0
-=======
-  - enabled: 1
-    path: Assets/Scenes/BossLevel.unity
-    guid: afd10a717b3d24947beefbfe5e4f5faf
-  - enabled: 1
-    path: Assets/Scenes/EliotTest1.unity
-    guid: fc95c2599c38c4b9892b59b2826abca8
-  - enabled: 1
-    path: Assets/Scenes/inventoryUI.unity
-    guid: d3063d5b9a6a05241a1d69435d9c0be0
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
-    guid: 2c63629f7bf4b494dadbb6cb3248bd25
-  - enabled: 1
-    path: Assets/Scenes/Test.unity
-    guid: 086f1b9236ac04b94a447aaa4195434a
->>>>>>> 9448a8b8a76546695c63e51cf536d96dc98e1007
+    guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects: {}
