@@ -46,7 +46,8 @@ public class GameDataManager : MonoBehaviour
     var pickup = p.GetComponent<ItemPickup>();
     pickup.itemID = item.Id;
     Vector3 pp = playerObject.transform.position;
-    p.GetComponent<Transform>().position = pp;
+    float range = 1;
+    p.GetComponent<Transform>().position = new Vector3(pp.x + Random.Range(-range, range),pp.y + Random.Range(-range, range), pp.z);
     p.SetActive(true);
   }
 
