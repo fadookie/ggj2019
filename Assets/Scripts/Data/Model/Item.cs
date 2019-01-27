@@ -8,7 +8,7 @@ namespace Data.Model
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Art { get; set; }
+        public int Art { get; set; }
         public int sprite;
         public int type;
         [NullValues("")]
@@ -33,7 +33,7 @@ namespace Data.Model
       i.Id = Id;
       i.Name = Name;
       i.Art = Art;
-      Int32.TryParse(Art, out i.sprite);
+      //Int32.TryParse(Art, out i.sprite);
       i.Value = Value;
       i.Weight = Weight;
       i.HpMod = HpMod;
