@@ -12,6 +12,8 @@ public class GameDataManager : MonoBehaviour
     public Sprite[] itemSprites;
     public List<Item> AllItems;
     public Player Player;
+    public GameObject playerObject;
+    public GameObject pickupPrefab;
     
     private int nextId;
     
@@ -35,7 +37,17 @@ public class GameDataManager : MonoBehaviour
         Debug.Log(string.Format("Player: {0}", Player));
         
         PopulatePlayerInventory();
+      pickupPrefab.SetActive(false);
     }
+
+  public void addPickup(Item item) {
+    GameObject p = Instantiate(pickupPrefab);
+    var pickup = p.GetComponent<ItemPickup>();
+    pickup.itemID = item.Id;
+    Vector3 pp = playerObject.transform.position;
+    p.GetComponent<Transform>().position = pp;
+    p.SetActive(true);
+  }
 
     private void PopulatePlayerInventory() {
       for (var i = 0; i < 3; i++) {
