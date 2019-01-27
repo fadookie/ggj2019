@@ -23,13 +23,13 @@ public class SlotController : MonoBehaviour , IPointerEnterHandler, IPointerExit
         setItem(p.Armor.Value);
         break;
       case ItemTypes.WEAPON:
-        setItem(p.PrimaryHand.Value);
+        setItem(p.Weapon.Value);
         break;
       case ItemTypes.SHIELD:
         setItem(p.Shield.Value);
         break;
       case ItemTypes.ACCESSORY:
-        setItem(p.Accessory1.Value);
+        setItem(p.Accessory.Value);
         break;
 
     }
