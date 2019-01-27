@@ -14,6 +14,7 @@ public class GameDataManager : MonoBehaviour
     public Sprite[] itemSprites;
     public List<Item> AllItems;
     public int AllItemsWeight { get; private set; }
+    public int AllItemsValue { get; private set; }
     public Player Player;
     public GameObject playerObject;
     public GameObject pickupPrefab;
@@ -35,6 +36,7 @@ public class GameDataManager : MonoBehaviour
         var items = reader.read();
         AllItems = items;
         AllItemsWeight = AllItems.Aggregate(0, (acc, next) => acc + next.Weight);
+        AllItemsValue = AllItems.Aggregate(0, (acc, next) => acc + next.Value);
         Player = new Player();
         Debug.Log("Loaded items:");
         items.ForEach(Debug.Log);
