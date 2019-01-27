@@ -9,7 +9,6 @@ namespace Data.Model
         public int Id { get; set; }
         public string Name { get; set; }
         public int Art { get; set; }
-        public int sprite;
         public int type;
         [NullValues("")]
         public int? IntegrityPoints { get; set; }

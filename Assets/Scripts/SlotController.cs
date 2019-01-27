@@ -39,7 +39,7 @@ public class SlotController : MonoBehaviour , IPointerEnterHandler, IPointerExit
     var gameDataManager = GameObject.FindObjectOfType<GameDataManager>();
     if (item != null && item.type == type)
     {
-      itemImage.sprite = gameDataManager.itemSprites[item.sprite];
+      itemImage.sprite = gameDataManager.itemSprites[item.Art];
       Item = item;
     }
   }

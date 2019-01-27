@@ -290,11 +290,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 733844720647141685, guid: 721fbb1dc42c0c343b3346b72a23a42e,
         type: 3}
-      propertyPath: playerObject
-      value: 
-      objectReference: {fileID: 3547087983123354380}
-    - target: {fileID: 733844720647141685, guid: 721fbb1dc42c0c343b3346b72a23a42e,
-        type: 3}
       propertyPath: pickupPrefab
       value: 
       objectReference: {fileID: 7695684873565598604, guid: ae9e71bbf64b85f469116d118e2939a6,
@@ -405,12 +400,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5d70abce0e4442d4a8fca0d903efba7, type: 3}
---- !u!1 &3547087983123354380 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8097837975678470549, guid: d5d70abce0e4442d4a8fca0d903efba7,
-    type: 3}
-  m_PrefabInstance: {fileID: 3547087983123354379}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6004525853377771167
 PrefabInstance:
   m_ObjectHideFlags: 0

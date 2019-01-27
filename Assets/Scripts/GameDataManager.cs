@@ -50,8 +50,8 @@ public class GameDataManager : MonoBehaviour
   }
 
     private void PopulatePlayerInventory() {
-      for (var i = 0; i < 3; i++) {
-       Player.Inventory.Add(AllItems[0].getItem());
+      for (var i = 0; i < 9; i++) {
+       Player.Inventory.Add(AllItems.Where(it => it.Id == i+1).FirstOrDefault());
       }
         //for (var i = 0; i < 10; ++i)
         //{
