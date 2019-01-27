@@ -17,10 +17,11 @@ public class ListController : MonoBehaviour
   }
 
   public void addItemToInventory(Item item) {
+    var gdm = GameObject.FindObjectOfType<GameDataManager>();
     GameObject i = Instantiate(itemPrefab) as GameObject;
     i.SetActive(true);
     ItemController controller = i.GetComponent<ItemController>();
-    controller.Icon.sprite = testTexture;
+    controller.Icon.sprite = gdm.itemSprites[item.Art];
     controller.Name.text = item.Name;
     controller.Weight.text = "weight" + item.Weight;
     controller.item = item;
