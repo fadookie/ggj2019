@@ -76,6 +76,7 @@ public class DragAndDrop : MonoBehaviour
         Debug.Log("trashed item");
         GameObject.Destroy(itemObject);
         removeFromInventory(gdm,item);
+        gdm.addPickup(item);
 
         item = null;
         itemObject = null;

@@ -116,7 +116,7 @@ public class PlayerBehaviour : MonoBehaviour
             }
             else
             {
-                GameDataManager.instance.Player.Inventory.Add(item);
+                GameDataManager.instance.Player.Inventory.Add(item.getItem());
                 Destroy(itemToPickup.gameObject);
 
                 foreach(Item it in GameDataManager.instance.Player.Inventory)
