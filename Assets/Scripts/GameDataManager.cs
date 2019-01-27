@@ -12,7 +12,6 @@ public class GameDataManager : MonoBehaviour
     public Sprite[] itemSprites;
     public List<Item> AllItems;
     public Player Player;
-    public Item CursorItem { get; set; }
     
     private int nextId;
     
@@ -30,7 +29,6 @@ public class GameDataManager : MonoBehaviour
         var items = reader.read();
         AllItems = items;
         Player = new Player();
-        CursorItem = null;
         Debug.Log("Loaded items:");
         items.ForEach(Debug.Log);
 
@@ -40,13 +38,20 @@ public class GameDataManager : MonoBehaviour
     }
 
     private void PopulatePlayerInventory() {
-        for (var i = 0; i < 10; ++i) {
-            Player.Inventory.Add(GenerateTestItem());
-        }
-        foreach (var slot in Player.AllItemSlots) {
-            slot.Value = GenerateTestItem();
-        }
-    }
+      for (var i = 0; i < 3; i++) {
+       Player.Inventory.Add(AllItems[0].getItem());
+      }
+        //for (var i = 0; i < 10; ++i)
+        //{
+        //  Player.Inventory.Add(GenerateTestItem());
+        //}
+      //for (var i = 0; i < 10; ++i) {
+      //        Player.Inventory.Add(GenerateTestItem());
+      //    }
+      //    foreach (var slot in Player.AllItemSlots) {
+      //        slot.Value = GenerateTestItem();
+      //    }
+      }
 
     public Item GenerateTestItem() {
         var item = new Item {

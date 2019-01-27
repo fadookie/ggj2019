@@ -8,6 +8,7 @@ using Data.Model;
 public class ItemController : MonoBehaviour, IPointerEnterHandler,IPointerExitHandler
 {
 
+  public GameObject self;
   public Button button;
   public Image Icon;
   public Text Name,Weight;
@@ -37,6 +38,7 @@ public class ItemController : MonoBehaviour, IPointerEnterHandler,IPointerExitHa
     if (!dnd.draggin)
     {
       dnd.item = item;
+      dnd.itemObject = self;
     }
     else {
 
@@ -50,6 +52,7 @@ public class ItemController : MonoBehaviour, IPointerEnterHandler,IPointerExitHa
     {
 
       dnd.item = null;
+      dnd.itemObject = null;
     }
     else {
 

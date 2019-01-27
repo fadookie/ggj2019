@@ -15,12 +15,29 @@ public class SlotController : MonoBehaviour , IPointerEnterHandler, IPointerExit
     // Start is called before the first frame update
     void Start()
     {
-        
+     var gameDataManager = GameObject.FindObjectOfType<GameDataManager>();
+    Player p = gameDataManager.Player;
+    switch (type)
+    {
+      case ItemTypes.ARMOR:
+        setItem(p.Armor.Value);
+        break;
+      case ItemTypes.WEAPON:
+        setItem(p.PrimaryHand.Value);
+        break;
+      case ItemTypes.SHIELD:
+        setItem(p.Shield.Value);
+        break;
+      case ItemTypes.ACCESSORY:
+        setItem(p.Accessory1.Value);
+        break;
+
     }
+  }
 
   public void setItem(Item item) {
     var gameDataManager = GameObject.FindObjectOfType<GameDataManager>();
-    if (item.type == type)
+    if (item != null && item.type == type)
     {
       itemImage.sprite = gameDataManager.itemSprites[item.sprite];
       Item = item;

@@ -13,12 +13,12 @@ namespace Data.Model
         
         public Stats BaseStats { get; }
         
-        public ReactiveProperty<Item> Armor { get; }
-        public ReactiveProperty<Item> PrimaryHand { get; }
-        public ReactiveProperty<Item> SecondaryHand { get; }
-        public ReactiveProperty<Item> Shield { get; }
-        public ReactiveProperty<Item> Accessory1 { get; }
-        public ReactiveProperty<Item> Accessory2 { get; }
+        public ReactiveProperty<Item> Armor { get; set; }
+        public ReactiveProperty<Item> PrimaryHand { get; set; }
+        public ReactiveProperty<Item> SecondaryHand { get; set; }
+        public ReactiveProperty<Item> Shield { get; set; }
+        public ReactiveProperty<Item> Accessory1 { get; set; }
+        public ReactiveProperty<Item> Accessory2 { get; set; }
         
         public IEnumerable<ReactiveProperty<Item>> AllItemSlots => new[]
             {Armor, PrimaryHand, SecondaryHand, Shield, Accessory1, Accessory2};

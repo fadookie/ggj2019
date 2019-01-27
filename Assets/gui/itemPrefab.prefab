@@ -271,10 +271,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac605d0b5faff240900a416ec743ee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  self: {fileID: 5539731355070173908}
   button: {fileID: 5462391621016183660}
   Icon: {fileID: 1213360433846323869}
   Name: {fileID: 6191920166344454726}
   Weight: {fileID: 7917682170287431540}
+  item:
+    sprite: 0
+    type: 0
 --- !u!114 &4006414856880724411
 MonoBehaviour:
   m_ObjectHideFlags: 0
