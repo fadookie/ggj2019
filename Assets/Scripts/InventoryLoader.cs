@@ -20,6 +20,7 @@ public class InventoryLoader : MonoBehaviour
     if (!pressed && Input.GetKeyDown(KeyCode.I))
     {
       pressed = true;
+      SfxPlayer.instance.PlaySound(SfxPlayer.Sound.Click);
       if (Loaded)
         unloadUi();
       else

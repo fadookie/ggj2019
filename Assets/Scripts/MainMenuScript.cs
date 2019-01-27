@@ -20,11 +20,13 @@ public class MainMenuScript : MonoBehaviour
   }
 
   public void PlayGame() {
+    SfxPlayer.instance.PlaySound(SfxPlayer.Sound.Click);
     SceneManager.LoadScene(GameScene, LoadSceneMode.Single);
   }
 
   public void QuitGame() {
     Debug.Log("quit game");
+    SfxPlayer.instance.PlaySound(SfxPlayer.Sound.Click);
     Application.Quit();
   }
 }

@@ -19,6 +19,7 @@ public class PauseLoader : MonoBehaviour
 
     if (!pressed && Input.GetKeyDown(KeyCode.P))
     {
+      SfxPlayer.instance.PlaySound(SfxPlayer.Sound.Click);
       pressed = true;
       if (Loaded)
         unloadUi();
