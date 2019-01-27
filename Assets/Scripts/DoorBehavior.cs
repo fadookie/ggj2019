@@ -63,12 +63,22 @@ public class DoorBehavior : MonoBehaviour
         }
     }
 
-    void SetOpen(bool openDoor)
+    private void SetOpen(bool openDoor)
     {
         if (open != openDoor)
         {
             open = openDoor;
             timer = timeToClose - timer;
         }
+    }
+
+    public void Open()
+    {
+        triggerOpen = true;
+    }
+
+    public void Close()
+    {
+        triggerOpen = false;
     }
 }
