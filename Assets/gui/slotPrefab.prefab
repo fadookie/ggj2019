@@ -239,6 +239,7 @@ GameObject:
   - component: {fileID: 5963789736629505508}
   - component: {fileID: 5963789736629505509}
   - component: {fileID: 4431839474556782971}
+  - component: {fileID: 8262160804836085009}
   m_Layer: 5
   m_Name: slotPrefab
   m_TagString: Untagged
@@ -283,7 +284,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5963789736629505511}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -319,3 +320,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   itemImage: {fileID: 5963789736426043530}
+--- !u!114 &8262160804836085009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5963789736629505511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1679637790, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 437.66998
+  m_PreferredHeight: 298.06
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
