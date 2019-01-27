@@ -76,5 +76,17 @@ namespace Data.Model
         public override string ToString() {
             return $"{nameof(Level)}: {Level}, {nameof(BaseStats)}: {BaseStats}, {nameof(Armor)}: {Armor}, {nameof(Weapon)}: {Weapon}, {nameof(Shield)}: {Shield}, {nameof(Accessory)}: {Accessory}, {nameof(AllItemSlots)}: {AllItemSlots}, {nameof(Inventory)}: {Inventory}, {nameof(Stats)}: {Stats}, {nameof(InventoryWeight)}: {InventoryWeight}";
         }
+
+        public long GetCombinedValueOfItems()
+        {
+            int value = Inventory.Select(item => item.Value).Sum();
+
+            value += Armor.Value == null ? 0 : Armor.Value.Value;
+            value += Weapon.Value == null ? 0 : Weapon.Value.Value;
+            value += Shield.Value == null ? 0 : Shield.Value.Value;
+            value += Accessory.Value == null ? 0 : Accessory.Value.Value;
+
+            return value;
+        }
     }
 }
