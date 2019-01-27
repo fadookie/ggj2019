@@ -7,6 +7,7 @@ public class PlayerBehaviour : MonoBehaviour
     public int HP = 100, MP = 100, Speed = 100;
     private Rigidbody2D rb;
     private Animator animator;
+    private int dir = 0;
 
     void Start()
     {
@@ -17,7 +18,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     void UpdateAnimation(Vector2 direction)
     {
-        int dir;
+        bool isMoving = true;
+        int currentDir = dir;
 
         if (direction.x > 0)
             dir = 4;
@@ -28,9 +30,15 @@ public class PlayerBehaviour : MonoBehaviour
         else if (direction.y > 0)
             dir = 3;
         else
-            dir = 0;
+            isMoving = false;
 
-        animator.SetInteger("direction", dir);
+        if (isMoving)
+            animator.speed = 1.0f;
+        else
+            animator.speed = 0.0f;
+
+        if(currentDir != dir)
+            animator.SetInteger("direction", dir);
     }
 
     void Update()
