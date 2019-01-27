@@ -61,14 +61,12 @@ public class PlayerBehaviour : MonoBehaviour
         float distance = Speed * 0.05f * Time.deltaTime;
         int layerMask = LayerMask.GetMask("Solid Objects");
 
-        //ContactFilter2D contactFilter = new ContactFilter2D();
-        //contactFilter.SetLayerMask(layerMask);
-        //RaycastHit2D[] results = new RaycastHit2D[2];
-        //int count = rb.Cast(direction, contactFilter, results, distance);
-        //if (count > 0)
+        ContactFilter2D contactFilter = new ContactFilter2D();
+        contactFilter.SetLayerMask(layerMask);
+        RaycastHit2D[] results = new RaycastHit2D[1];
 
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position, size, 0.0f, direction, distance, layerMask);
-        if (!hit) {
+        if (rb.Cast(direction, contactFilter, results, distance) == 0)
+        {
             Vector3 newpos = direction * distance;
             transform.Translate(newpos);
             UpdateAnimation(direction);
@@ -77,8 +75,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         Vector3 horizDirection = new Vector3();
         horizDirection.x = direction.x;
-        hit = Physics2D.BoxCast(transform.position, size, 0.0f, horizDirection, distance, layerMask);
-        if (!hit)
+        if (rb.Cast(horizDirection, contactFilter, results, distance) == 0)
         {
             Vector3 newpos = horizDirection * distance;
             transform.Translate(newpos);
@@ -87,8 +84,8 @@ public class PlayerBehaviour : MonoBehaviour
 
         Vector3 vertDirection = new Vector3();
         vertDirection.y = direction.y;
-        hit = Physics2D.BoxCast(transform.position, size, 0.0f, vertDirection, distance, layerMask);
-        if (!hit) {
+        if (rb.Cast(vertDirection, contactFilter, results, distance) == 0)
+        {
             Vector3 newpos = vertDirection * distance;
             transform.Translate(newpos);
             return;
