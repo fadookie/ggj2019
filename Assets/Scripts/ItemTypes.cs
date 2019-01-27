@@ -8,7 +8,5 @@ public class ItemTypes
   public const int WEAPON = 1;
   public const int SHIELD = 2;
   public const int ACCESSORY = 3;
-
-
-
+  public const int TREASURE = 4;
 }
