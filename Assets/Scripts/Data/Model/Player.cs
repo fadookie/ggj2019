@@ -49,6 +49,14 @@ namespace Data.Model
                 .ToReadOnlyReactiveProperty();
         }
 
+    public int getInventoryWeight() {
+      int weight = 0;
+      foreach (var i in Inventory) {
+        weight += i.Weight;
+      }
+      return weight;
+    }
+
         private Stats EquippedItemModifiers() {
             return AllItemSlots
                 .Where(x => x.HasValue && x.Value != null)

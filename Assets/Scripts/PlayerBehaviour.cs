@@ -52,6 +52,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Update()
     {
+      var gdm = GameDataManager.instance;
         Vector3 direction = new Vector3();
         if (Input.GetKey(KeyCode.D))
             direction.x += 1.0f;
@@ -70,7 +71,7 @@ public class PlayerBehaviour : MonoBehaviour
         //direction.y = Input.GetAxis("Vertical");
 
         Vector2 size = new Vector2(1, 1);
-        float weightBurden = isOverWeight ? 0.90f : 0;
+    float weightBurden = Mathf.Clamp((float)gdm.Player.getInventoryWeight() / 100f, .1f, .9f);//isOverWeight ? 0.90f : 0;
         float distance = Speed * (1 - weightBurden) * 0.05f * Time.deltaTime;
         int layerMask = LayerMask.GetMask("Solid Objects");
 
