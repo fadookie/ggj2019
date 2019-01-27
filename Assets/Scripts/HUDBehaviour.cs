@@ -21,6 +21,6 @@ public class HUDBehaviour : MonoBehaviour
     var gdm = GameDataManager.instance;
         hpText.text = playerBehaviour.HP.ToString();
         mpText.text = playerBehaviour.MP.ToString();
-    speedText.text = "" + (playerBehaviour.Speed * (1-Mathf.Clamp((float)gdm.Player.getInventoryWeight() / 100f, .1f, .9f)*.5f)) ;
+    speedText.text = "" + (playerBehaviour.Speed * (1-Mathf.Clamp((float)gdm.Player.Encumbrance.Value / 100f, .1f, .9f)*.5f)) ;
   }
 }

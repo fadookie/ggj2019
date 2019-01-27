@@ -99,7 +99,7 @@ public class DragAndDrop : MonoBehaviour
         p.Armor.SetValueAndForceNotify(item);
         break;
       case ItemTypes.WEAPON:
-        p.PrimaryHand.SetValueAndForceNotify(item);
+        p.Weapon.SetValueAndForceNotify(item);
         break;
       case ItemTypes.SHIELD:
         p.Shield.SetValueAndForceNotify(item);
