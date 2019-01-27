@@ -42,7 +42,6 @@ public class GameDataManager : MonoBehaviour
         PopulatePlayerInventory();
         Debug.Log(string.Format("Populated Player: {0}", Player));
         Debug.Log($"inventory weight = {Player.InventoryWeight.Value}");
-        pickupPrefab.SetActive(false);
     }
 
     public float GetPlayerTunedWeightBurden() {
