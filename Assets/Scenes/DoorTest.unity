@@ -509,6 +509,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bc735973f3ba4709b932ca88efe6c0a, type: 3}
+--- !u!1 &826814640 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8389322551354464614, guid: 2fb63354a73804987aaa2d3ab7c270b0,
+    type: 3}
+  m_PrefabInstance: {fileID: 2110736869701953295}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &826814641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826814640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdc87c2cbed6148e5a74c08f447c66a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onTurnOn:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onTurnOff:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  buttonOn: {fileID: 0}
+  buttonOff: {fileID: 0}
+  isOn: 0
 --- !u!1001 &831301739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1550,7 +1581,8 @@ PrefabInstance:
       propertyPath: onTurnOff.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1134662368}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8389322551354464613, guid: 2fb63354a73804987aaa2d3ab7c270b0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2fb63354a73804987aaa2d3ab7c270b0, type: 3}
 --- !u!1001 &3547087983123354379
 PrefabInstance:
