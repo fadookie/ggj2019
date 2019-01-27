@@ -6,11 +6,31 @@ public class PlayerBehaviour : MonoBehaviour
 {
     public int HP = 100, MP = 100, Speed = 100;
     private Rigidbody2D rb;
+    private Animator animator;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
+    }
+
+    void UpdateAnimation(Vector2 direction)
+    {
+        int dir;
+
+        if (direction.x > 0)
+            dir = 4;
+        else if (direction.x < 0)
+            dir = 2;
+        else if (direction.y < 0)
+            dir = 1;
+        else if (direction.y > 0)
+            dir = 3;
+        else
+            dir = 0;
+
+        animator.SetInteger("direction", dir);
     }
 
     void Update()
@@ -43,6 +63,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (!hit) {
             Vector3 newpos = direction * distance;
             transform.Translate(newpos);
+            UpdateAnimation(direction);
             return;
         }
 

@@ -9,7 +9,7 @@ public class DoorBehavior : MonoBehaviour
     public Transform closedPosition;
 
     [SerializeField]
-    private Transform doorBody;
+    private Transform doorBody = null;
 
     [SerializeField]
     private float timeToClose = 1.0f;
