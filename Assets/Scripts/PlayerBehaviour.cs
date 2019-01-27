@@ -1,5 +1,7 @@
+using Data.Model;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
@@ -8,6 +10,8 @@ public class PlayerBehaviour : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     private int dir = 0;
+
+    public ItemPickup itemToPickup;
 
     void Start()
     {
@@ -53,6 +57,9 @@ public class PlayerBehaviour : MonoBehaviour
         if (Input.GetKey(KeyCode.S))
             direction.y -= 1.0f;
 
+        if (Input.GetKey(KeyCode.E))
+            HandleItemPickupCall();
+
         //Vector2 direction;
         //direction.x = Input.GetAxis("Horizontal");
         //direction.y = Input.GetAxis("Vertical");
@@ -91,5 +98,30 @@ public class PlayerBehaviour : MonoBehaviour
             return;
         }
 
+    }
+
+    void HandleItemPickupCall()
+    {
+        if (itemToPickup)
+        {
+            Item item = GameDataManager.instance.AllItems.Where(it => (it != null && it.Id == itemToPickup.itemID)).FirstOrDefault();
+
+            if (item == null)
+            {
+                Debug.LogError("Missing item with item ID: " + item.Id);
+            }
+            else
+            {
+                GameDataManager.instance.Player.Inventory.Add(item);
+                Destroy(itemToPickup.gameObject);
+
+                foreach(Item it in GameDataManager.instance.Player.Inventory)
+                {
+                    Debug.Log(it);
+                }
+
+                
+            }
+        }
     }
 }

@@ -7,7 +7,8 @@ using UnityEngine;
 
 public class GameDataManager : MonoBehaviour
 {
-  
+    public static GameDataManager instance;
+
     public Sprite[] itemSprites;
     public List<Item> AllItems;
     public Player Player;
@@ -16,11 +17,20 @@ public class GameDataManager : MonoBehaviour
     private int nextId;
     
     void Awake() {
+
+        // Singleton setup;
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+
         var reader = new Reader();
         var items = reader.read();
         AllItems = items;
         Player = new Player();
-      CursorItem = null;
+        CursorItem = null;
         Debug.Log("Loaded items:");
         items.ForEach(Debug.Log);
 
