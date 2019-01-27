@@ -31,13 +31,11 @@ public class ListController : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-  {
-    var gameDataManager = GameObject.FindObjectOfType<GameDataManager>();
-    foreach (var item in gameDataManager.Player.Inventory) {
-      addItemToInventory(item);
-    }
-
-    itemPrefab.SetActive(false);
+    {
+        var gameDataManager = GameObject.FindObjectOfType<GameDataManager>();
+        foreach (var item in gameDataManager.Player.Inventory) {
+          addItemToInventory(item);
+        }
         
     }
 

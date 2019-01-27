@@ -21,6 +21,7 @@ public class GameDataManager : MonoBehaviour
     private float startTime;
     private float endTime;
     private int nextId;
+    public AnimationCurve weightBurdenCurve;
 
     void Awake() {
         startTime = Time.time;
@@ -42,8 +43,11 @@ public class GameDataManager : MonoBehaviour
 
         PopulatePlayerInventory();
         Debug.Log(string.Format("Populated Player: {0}", Player));
-        Debug.Log("inventory weight = " + Player.Encumbrance.Value);
-        pickupPrefab.SetActive(false);
+        Debug.Log($"inventory weight = {Player.InventoryWeight.Value}");
+    }
+
+    public float GetPlayerTunedWeightBurden() {
+        return weightBurdenCurve.Evaluate(Player.InventoryWeight.Value / AllItemsWeight);
     }
 
     public void addPickup(Item item) {

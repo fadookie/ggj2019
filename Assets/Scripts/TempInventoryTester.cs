@@ -41,7 +41,7 @@ public class TempInventoryTester : MonoBehaviour
         });
 
         player.Stats
-            .CombineLatest(player.Encumbrance, (stats, encumbrance) => $"Stats: {stats}, Encumbrance: {encumbrance}")
+            .CombineLatest(player.InventoryWeight, (stats, encumbrance) => $"Stats: {stats}, Encumbrance: {encumbrance}")
             .SubscribeToText(PlayerInfo);
         inventory.ObserveCountChanged().StartWith(inventory.Count).Subscribe(_ => {
             InventoryInfo.text = ToDebugString(inventory);
