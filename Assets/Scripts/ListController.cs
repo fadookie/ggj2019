@@ -25,6 +25,7 @@ public class ListController : MonoBehaviour
       controller.Icon.sprite = testTexture;
       controller.Name.text = item.Name;
       controller.Weight.text = "weight" + item.Weight;
+      controller.item = item;
       controller.transform.SetParent(content.transform);
     }
 
