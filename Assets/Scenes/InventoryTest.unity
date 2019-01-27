@@ -153,7 +153,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1673917928
 GameObject:
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 1673917930}
   - component: {fileID: 1673917929}
   m_Layer: 0
-  m_Name: GameData
+  m_Name: GameDataManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,6 +184,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86741597c88784c55b2fba7178f7a1aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemSprites:
+  - {fileID: 21300000, guid: 4513a09043658444e92d44a4d0ed5ee2, type: 3}
+  - {fileID: 21300000, guid: 0fc4871fc44093d459a3032a36304bc3, type: 3}
+  - {fileID: 21300000, guid: 821a1bbb9d8abea4f855c08be2cf8571, type: 3}
 --- !u!4 &1673917930
 Transform:
   m_ObjectHideFlags: 0
@@ -196,7 +200,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2016062512
 GameObject:

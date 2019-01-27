@@ -7,8 +7,11 @@ using UnityEngine;
 
 public class GameDataManager : MonoBehaviour
 {
+  
+    public Sprite[] itemSprites;
     public List<Item> AllItems;
     public Player Player;
+    public Item CursorItem { get; set; }
     
     private int nextId;
     
@@ -16,9 +19,8 @@ public class GameDataManager : MonoBehaviour
         var reader = new Reader();
         var items = reader.read();
         AllItems = items;
-        
         Player = new Player();
-
+      CursorItem = null;
         Debug.Log("Loaded items:");
         items.ForEach(Debug.Log);
 
