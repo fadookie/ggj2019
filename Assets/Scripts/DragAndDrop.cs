@@ -48,7 +48,7 @@ public class DragAndDrop : MonoBehaviour
       if (slot != null && item != null )
       {
 
-        if (slot.type == item.type)
+        if (slot.type == item.Type)
         {
           //slot item
           if (slot.Item != null) {
@@ -84,7 +84,7 @@ public class DragAndDrop : MonoBehaviour
       }
       else if (item != null) {
         //do nothing with item
-        Debug.Log("did nothing with item");
+//        Debug.Log("did nothing with item");
       }
       justdown = false;
     }
@@ -94,7 +94,7 @@ public class DragAndDrop : MonoBehaviour
 
   public void slotItem(Player p,Item item)
   {
-    switch (item.type) {
+    switch (item.Type) {
       case ItemTypes.ARMOR:
         p.Armor.SetValueAndForceNotify(item);
         break;

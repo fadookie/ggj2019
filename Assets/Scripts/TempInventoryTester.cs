@@ -14,6 +14,11 @@ public class TempInventoryTester : MonoBehaviour
     public Button ChangeEquipment;
     public Text PlayerInfo;
     public Text InventoryInfo;
+    public Text AllItemsInfo;
+
+    string ToDebugString<T>(IList<T> list) {
+        return list.Aggregate("", (collector, next) => collector + next.ToString() + "\n");
+    }
 
     // Start is called before the first frame update
     void Start() {
@@ -36,7 +41,9 @@ public class TempInventoryTester : MonoBehaviour
 
         player.Stats.SubscribeToText(PlayerInfo);
         inventory.ObserveCountChanged().StartWith(inventory.Count).Subscribe(_ => {
-            InventoryInfo.text = inventory.Aggregate("", (collector, next) => collector + next.ToString() + "\n");
+            InventoryInfo.text = ToDebugString(inventory);
         });
+
+        AllItemsInfo.text = ToDebugString(gameDataManager.AllItems);
     }
 }
