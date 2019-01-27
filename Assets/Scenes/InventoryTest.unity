@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37312013, g: 0.3807403, b: 0.35872707, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311926, g: 0.38074008, b: 0.35872707, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -251,6 +251,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7695684873565598604, guid: ae9e71bbf64b85f469116d118e2939a6,
         type: 3}
+    - target: {fileID: 733844720647141685, guid: 721fbb1dc42c0c343b3346b72a23a42e,
+        type: 3}
+      propertyPath: range
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 721fbb1dc42c0c343b3346b72a23a42e, type: 3}
 --- !u!1001 &3547087983123354379
@@ -260,6 +265,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3547087983046841803, guid: d5d70abce0e4442d4a8fca0d903efba7,
+        type: 3}
+      propertyPath: HP
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547087983046841803, guid: d5d70abce0e4442d4a8fca0d903efba7,
+        type: 3}
+      propertyPath: MP
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547087983046841803, guid: d5d70abce0e4442d4a8fca0d903efba7,
+        type: 3}
+      propertyPath: Speed
+      value: 99
+      objectReference: {fileID: 0}
     - target: {fileID: 3547087983046841782, guid: d5d70abce0e4442d4a8fca0d903efba7,
         type: 3}
       propertyPath: m_Name
@@ -319,21 +339,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547087983046841803, guid: d5d70abce0e4442d4a8fca0d903efba7,
-        type: 3}
-      propertyPath: HP
-      value: 99
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547087983046841803, guid: d5d70abce0e4442d4a8fca0d903efba7,
-        type: 3}
-      propertyPath: MP
-      value: 99
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547087983046841803, guid: d5d70abce0e4442d4a8fca0d903efba7,
-        type: 3}
-      propertyPath: Speed
-      value: 99
       objectReference: {fileID: 0}
     - target: {fileID: 8097837975678470551, guid: d5d70abce0e4442d4a8fca0d903efba7,
         type: 3}

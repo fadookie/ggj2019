@@ -16,6 +16,7 @@ public class DragAndDrop : MonoBehaviour
   public Image dragImage;
   public ListController lc;
   public TextScript textDisplay;
+  public Text weight;
 
     // Start is called before the first frame update
     void Start()
