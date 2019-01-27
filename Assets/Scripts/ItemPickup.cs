@@ -21,7 +21,7 @@ public class ItemPickup : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             PlayerBehaviour beh = collider.gameObject.GetComponent<PlayerBehaviour>();
-            beh.itemToPickup = this;
+            beh.itemToPickups.Add(this);
         }
     }
 
@@ -31,9 +31,9 @@ public class ItemPickup : MonoBehaviour
         {
             PlayerBehaviour beh = collider.gameObject.GetComponent<PlayerBehaviour>();
 
-            if (beh.itemToPickup == this)
+            if (beh.itemToPickups.Contains(this))
             {
-                beh.itemToPickup = null;
+                beh.itemToPickups.Remove(this);
             }
         }
     }

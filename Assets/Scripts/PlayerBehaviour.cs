@@ -13,8 +13,9 @@ public class PlayerBehaviour : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     private int dir = 0;
+  private bool pickingup = false;
 
-    public ItemPickup itemToPickup;
+    public List<ItemPickup> itemToPickups;
 
   
     void Start()
@@ -65,8 +66,14 @@ public class PlayerBehaviour : MonoBehaviour
         if (Input.GetKey(KeyCode.S))
             direction.y -= 1.0f;
 
-        if (Input.GetKey(KeyCode.E))
-            HandleItemPickupCall();
+    if (!pickingup && Input.GetKeyDown(KeyCode.E))
+    {
+      pickingup = true;
+      HandleItemPickupCall();
+    }
+    else if (!Input.GetKeyDown(KeyCode.E)) {
+      pickingup = false;
+    }
 
         //Vector2 direction;
         //direction.x = Input.GetAxis("Horizontal");
@@ -111,13 +118,15 @@ public class PlayerBehaviour : MonoBehaviour
 
     void HandleItemPickupCall()
     {
-        if (itemToPickup)
+        if (itemToPickups.Count > 0)
         {
-            Item item = GameDataManager.instance.AllItems.Where(it => (it != null && it.Id == itemToPickup.itemID)).FirstOrDefault();
+            ItemPickup itemToPickup = itemToPickups.First();
+        itemToPickups.Remove(itemToPickup);
+            Item item = GameDataManager.instance.AllItems.Where(it => (it != null && it.Id == itemToPickup.itemID+1)).FirstOrDefault();
 
             if (item == null)
             {
-                Debug.LogError("Missing item with item ID: " + item.Id);
+                Debug.LogError("Missing item with item ID: " + itemToPickup.itemID);
             }
             else
             {
