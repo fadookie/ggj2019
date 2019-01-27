@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86741597c88784c55b2fba7178f7a1aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   itemSprites:
   - {fileID: 21300050, guid: 5cefda7b15bdf4b199c935b0b2a0e0aa, type: 3}
   - {fileID: 21300042, guid: fe8c10f77494e4a18acacbb152b27310, type: 3}

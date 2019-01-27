@@ -80,7 +80,7 @@ public class PlayerBehaviour : MonoBehaviour
         //direction.y = Input.GetAxis("Vertical");
 
         Vector2 size = new Vector2(1, 1);
-        float weightBurden = Mathf.Clamp((float)gdm.Player.Encumbrance.Value / 100f, .1f, .9f);//isOverWeight ? 0.90f : 0;
+        float weightBurden = Mathf.Clamp((float)gdm.Player.Encumbrance.Value / 200, .1f, .9f);//isOverWeight ? 0.90f : 0;
         float distance = Speed * (1 - weightBurden) * 0.05f * Time.deltaTime;
         int layerMask = LayerMask.GetMask("Solid Objects");
 

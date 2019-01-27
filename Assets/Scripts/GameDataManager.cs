@@ -10,6 +10,7 @@ public class GameDataManager : MonoBehaviour
 {
     public static GameDataManager instance;
 
+    public Sprite noImage;
     public Sprite[] itemSprites;
     public List<Item> AllItems;
     public Player Player;
