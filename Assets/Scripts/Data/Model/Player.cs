@@ -55,10 +55,12 @@ namespace Data.Model
                 .Merge()
                 .CombineLatest(InventoryWeight, Tuple.Create)
                 .Select(x => {
+                    var invWeight = x.Item2;
+                    var allWeight = GameDataManager.instance.AllItemsWeight;
                     var modifiedStats = BaseStats + EquippedItemModifiers();
-                    var weightBurden = GameDataManager.instance.GetPlayerTunedWeightBurden(x.Item2);
+                    var weightBurden = GameDataManager.instance.GetPlayerTunedWeightBurden(invWeight);
                     var finalStats = new Stats(modifiedStats.Hp, modifiedStats.Mp, modifiedStats.Speed * (1 - weightBurden));
-                    Debug.Log($"Update stats, modified:{modifiedStats} weightBurden:{weightBurden} finalStats:{finalStats}");
+                    Debug.Log($"Update stats, modified:{modifiedStats} invWeight:{invWeight} allWeight:{allWeight} normalWeight:{invWeight / (float)allWeight} weightBurden:{weightBurden} finalStats:{finalStats}");
                     return finalStats;
                 })
                 .ToReadOnlyReactiveProperty();
