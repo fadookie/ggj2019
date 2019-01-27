@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,16 +15,28 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Update()
     {
-        float speed = Speed * 0.05f * Time.deltaTime;
-        Vector3 pos = new Vector3();
-        if (Input.GetKey(KeyCode.D))
-            pos.x += speed;
-        if (Input.GetKey(KeyCode.A))
-            pos.x -= speed;
-        if (Input.GetKey(KeyCode.W))
-            pos.y += speed;
-        if (Input.GetKey(KeyCode.S))
-            pos.y -= speed;
-        transform.Translate(pos);
+        Vector3 direction = new Vector3();
+
+        //if (Input.GetKey(KeyCode.D))
+        //    direction.x += 1.0f;
+        //if (Input.GetKey(KeyCode.A))
+        //    direction.x -= 1.0f;
+        //if (Input.GetKey(KeyCode.W))
+        //    direction.y += 1.0f;
+        //if (Input.GetKey(KeyCode.S))
+        //direction.y -= 1.0f;
+
+        direction.x += Input.GetAxis("Horizontal");
+        direction.y += Input.GetAxis("Vertical");
+
+        Vector2 size = new Vector2(1, 1);
+        float distance = Speed * 0.05f * Time.deltaTime;
+        Vector3 newpos = direction * distance;
+        int layerMask = LayerMask.GetMask("Solid Objects");
+
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, size, 0.0f, direction, distance, layerMask);
+
+        if (!hit)
+            transform.Translate(newpos);
     }
 }
