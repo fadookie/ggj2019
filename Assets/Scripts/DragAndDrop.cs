@@ -29,17 +29,21 @@ public class DragAndDrop : MonoBehaviour
     var gdm = GameObject.FindObjectOfType<GameDataManager>();
     if (Input.GetMouseButton(0))
     {
-      if (!draggin && item == null && slot != null) {
+      if (!draggin && item == null && slot != null)
+      {
         if (slot.Item != null)
         {
 
           gdm.Player.Inventory.Add(slot.Item);
           lc.addItemToInventory(slot.Item);
           slot.setItem(null);
+          slot = null;
         }
       }
-      Debug.Log("draggin");
-      draggin = true;
+      else
+      { 
+       Debug.Log("draggin");
+        draggin = true;
       if (!justdown && item != null)
       {
         //set drag image icon here
@@ -50,6 +54,7 @@ public class DragAndDrop : MonoBehaviour
         
       }
       dragImage.GetComponent<RectTransform>().position = Input.mousePosition;
+      }
     }
     else if (!Input.GetMouseButton(0)) {
       dragImage.enabled = false;

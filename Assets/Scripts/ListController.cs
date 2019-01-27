@@ -17,6 +17,7 @@ public class ListController : MonoBehaviour
   }
 
   public void addItemToInventory(Item item) {
+    itemPrefab.SetActive(false);
     var gdm = GameObject.FindObjectOfType<GameDataManager>();
     GameObject i = Instantiate(itemPrefab) as GameObject;
     i.SetActive(true);
