@@ -1,4 +1,11 @@
 Id,Name,Art,IntegrityPoints,Value,Weight,HpMod,MpMod,SpeedMod,DropText
-1,Fleece of Yendor,1,,3000,10,100,100,0,"But, I don't want to lose my cozy fleece…"
-2,Vorpal Blade,2,100,2000,20,0,50,10,This sword saved my life so many times. I don't know if I can bring myself to part with it…
-3,Klappa Vestibul,3,,0,0,0,0,0,
+1,Fleece of Yendor,0,,3000,10,100,100,0,"But, I don't want to lose my cozy fleece…"
+2,Vorpal Blade,1,100,2000,20,0,50,10,This sword saved my life so many times. I don't know if I can bring myself to part with it…
+3,Klappa Vestibul,2,,0,0,0,0,0,
+4,Cursed Gold Medallion,3,,2500,5,0,0,-10,
+5,Rubbish Chestplate,4,,100,10,60,0,5,
+6,Diamond Chestplate,5,,4000,50,100,100,0,
+7,Small Dagger,6,,100,2,0,0,5,
+8,Gilded Dagger,7,,1000,20,0,0,-8,
+9,Dull Horn,8,,25,1,0,0,0,
+10,Demon Horn,9,,2500,60,-25,0,-25,
