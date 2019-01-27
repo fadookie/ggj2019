@@ -16,27 +16,54 @@ public class PlayerBehaviour : MonoBehaviour
     void Update()
     {
         Vector3 direction = new Vector3();
+        if (Input.GetKey(KeyCode.D))
+            direction.x += 1.0f;
+        if (Input.GetKey(KeyCode.A))
+            direction.x -= 1.0f;
+        if (Input.GetKey(KeyCode.W))
+            direction.y += 1.0f;
+        if (Input.GetKey(KeyCode.S))
+            direction.y -= 1.0f;
 
-        //if (Input.GetKey(KeyCode.D))
-        //    direction.x += 1.0f;
-        //if (Input.GetKey(KeyCode.A))
-        //    direction.x -= 1.0f;
-        //if (Input.GetKey(KeyCode.W))
-        //    direction.y += 1.0f;
-        //if (Input.GetKey(KeyCode.S))
-        //direction.y -= 1.0f;
-
-        direction.x += Input.GetAxis("Horizontal");
-        direction.y += Input.GetAxis("Vertical");
+        //Vector2 direction;
+        //direction.x = Input.GetAxis("Horizontal");
+        //direction.y = Input.GetAxis("Vertical");
 
         Vector2 size = new Vector2(1, 1);
         float distance = Speed * 0.05f * Time.deltaTime;
-        Vector3 newpos = direction * distance;
         int layerMask = LayerMask.GetMask("Solid Objects");
 
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position, size, 0.0f, direction, distance, layerMask);
+        //ContactFilter2D contactFilter = new ContactFilter2D();
+        //contactFilter.SetLayerMask(layerMask);
+        //RaycastHit2D[] results = new RaycastHit2D[2];
+        //int count = rb.Cast(direction, contactFilter, results, distance);
+        //if (count > 0)
 
-        if (!hit)
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, size, 0.0f, direction, distance, layerMask);
+        if (!hit) {
+            Vector3 newpos = direction * distance;
             transform.Translate(newpos);
+            return;
+        }
+
+        Vector3 horizDirection = new Vector3();
+        horizDirection.x = direction.x;
+        hit = Physics2D.BoxCast(transform.position, size, 0.0f, horizDirection, distance, layerMask);
+        if (!hit)
+        {
+            Vector3 newpos = horizDirection * distance;
+            transform.Translate(newpos);
+            return;
+        }
+
+        Vector3 vertDirection = new Vector3();
+        vertDirection.y = direction.y;
+        hit = Physics2D.BoxCast(transform.position, size, 0.0f, vertDirection, distance, layerMask);
+        if (!hit) {
+            Vector3 newpos = vertDirection * distance;
+            transform.Translate(newpos);
+            return;
+        }
+
     }
 }
