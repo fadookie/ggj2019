@@ -20,8 +20,8 @@ public class ExitBehaviour : MonoBehaviour
 
     private void Awake()
     {
-        buttonOn.gameObject.SetActive(isOn);
-        buttonOff.gameObject.SetActive(!isOn);
+        //buttonOn.gameObject.SetActive(isOn);
+        //buttonOff.gameObject.SetActive(!isOn);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
