@@ -44,8 +44,8 @@ public class GameDataManager : MonoBehaviour
         Debug.Log($"inventory weight = {Player.InventoryWeight.Value}");
     }
 
-    public float GetPlayerTunedWeightBurden() {
-        return weightBurdenCurve.Evaluate(Player.InventoryWeight.Value / AllItemsWeight);
+    public float GetPlayerTunedWeightBurden(int inventoryWeight) {
+        return weightBurdenCurve.Evaluate(inventoryWeight / AllItemsWeight);
     }
 
     public void addPickup(Item item) {

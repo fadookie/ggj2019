@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UniRx;
+using UnityEngine;
 
 namespace Data.Model
 {
@@ -52,10 +53,13 @@ namespace Data.Model
 
             Stats = AllItemSlots
                 .Merge()
-                .Select(_ => {
+                .CombineLatest(InventoryWeight, Tuple.Create)
+                .Select(x => {
                     var modifiedStats = BaseStats + EquippedItemModifiers();
-                    var weightBurden = GameDataManager.instance.GetPlayerTunedWeightBurden();
-                    return new Stats(modifiedStats.Hp, modifiedStats.Mp, modifiedStats.Speed * (1 - weightBurden));
+                    var weightBurden = GameDataManager.instance.GetPlayerTunedWeightBurden(x.Item2);
+                    var finalStats = new Stats(modifiedStats.Hp, modifiedStats.Mp, modifiedStats.Speed * (1 - weightBurden));
+                    Debug.Log($"Update stats, modified:{modifiedStats} weightBurden:{weightBurden} finalStats:{finalStats}");
+                    return finalStats;
                 })
                 .ToReadOnlyReactiveProperty();
         }
