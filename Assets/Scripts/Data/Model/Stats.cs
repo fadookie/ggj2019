@@ -1,5 +1,8 @@
-﻿namespace Data.Model
+﻿using System;
+
+namespace Data.Model
 {
+    [Serializable]
     public class Stats 
     {
         public int Hp { get; }

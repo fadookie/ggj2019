@@ -6,6 +6,7 @@ using UniRx;
 
 namespace Data.Model
 {
+    [Serializable]
     public class Player
     {
         public int Level { get; }

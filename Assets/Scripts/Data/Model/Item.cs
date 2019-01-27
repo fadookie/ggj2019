@@ -3,6 +3,7 @@ using CsvHelper.Configuration.Attributes;
 
 namespace Data.Model
 {
+    [Serializable]
     public class Item
     {
         public int Id { get; set; }
