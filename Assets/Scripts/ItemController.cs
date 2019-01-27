@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Data.Model;
 
-public class ItemController : MonoBehaviour, IPointerEnterHandler
+public class ItemController : MonoBehaviour, IPointerEnterHandler,IPointerExitHandler
 {
 
   public Button button;
   public Image Icon;
   public Text Name,Weight;
+  public Item item;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,30 @@ public class ItemController : MonoBehaviour, IPointerEnterHandler
 
   public void OnPointerEnter(PointerEventData eventData)
   {
+
+    
     Debug.Log("inside "+Name.text);
+    var dnd = GameObject.FindObjectOfType<DragAndDrop>();
+    if (!dnd.draggin)
+    {
+      dnd.item = item;
+    }
+    else {
+
+    }
+  }
+
+  public void OnPointerExit(PointerEventData eventData)
+  {
+    var dnd = GameObject.FindObjectOfType<DragAndDrop>();
+    if (!dnd.draggin)
+    {
+
+      dnd.item = null;
+    }
+    else {
+
+    }
+
   }
 }

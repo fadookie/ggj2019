@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Data.Model;
-public class SlotController : MonoBehaviour
+using UnityEngine.EventSystems;
+
+public class SlotController : MonoBehaviour , IPointerEnterHandler, IPointerExitHandler
 {
   [Tooltip("armor=0 weapon=1 shield=2 accessory=3")]
   public int type = ItemTypes.ARMOR;
@@ -30,4 +32,16 @@ public class SlotController : MonoBehaviour
     {
         
     }
+
+  public void OnPointerEnter(PointerEventData eventData)
+  {
+    var dnd = GameObject.FindObjectOfType<DragAndDrop>();
+    dnd.slot = this;
+  }
+
+  public void OnPointerExit(PointerEventData eventData)
+  {
+    var dnd = GameObject.FindObjectOfType<DragAndDrop>();
+    dnd.slot = null;
+  }
 }
