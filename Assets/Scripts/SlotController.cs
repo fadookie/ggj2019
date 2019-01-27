@@ -47,6 +47,23 @@ public class SlotController : MonoBehaviour , IPointerEnterHandler, IPointerExit
     else if (item == null) {
       itemImage.sprite = gameDataManager.noImage;
       Item = null;
+      Player p = gameDataManager.Player;
+      switch (type)
+      {
+        case ItemTypes.ARMOR:
+          p.Armor.SetValueAndForceNotify(null);
+          break;
+        case ItemTypes.WEAPON:
+          p.Weapon.SetValueAndForceNotify(null);
+          break;
+        case ItemTypes.SHIELD:
+          p.Shield.SetValueAndForceNotify(null);
+          break;
+        case ItemTypes.ACCESSORY:
+          p.Accessory.SetValueAndForceNotify(null);
+          break;
+
+      }
     }
   }
 
