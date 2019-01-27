@@ -94,6 +94,7 @@ MonoBehaviour:
   playerObject: {fileID: 0}
   pickupPrefab: {fileID: 7695684873565598604, guid: ae9e71bbf64b85f469116d118e2939a6,
     type: 3}
+  range: 0.25
   weightBurdenCurve:
     serializedVersion: 2
     m_Curve:
