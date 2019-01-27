@@ -10,7 +10,7 @@ namespace Data
     public class Reader
     {
         public List<Item> read() {
-            using (var reader = new StreamReader("Assets/Data/items.csv")) {
+            using (var reader = new StreamReader("Assets/Resources/Data/items.csv")) {
                 using (var csv = new CsvReader(reader)) {
                     var records = csv.GetRecords<Item>();
                     var items = records.ToList();
