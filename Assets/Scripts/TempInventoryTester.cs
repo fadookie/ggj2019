@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +40,9 @@ public class TempInventoryTester : MonoBehaviour
             randomSlot.Value = gameDataManager.GenerateTestItem();
         });
 
-        player.Stats.SubscribeToText(PlayerInfo);
+        player.Stats
+            .CombineLatest(player.Encumbrance, (stats, encumbrance) => $"Stats: {stats}, Encumbrance: {encumbrance}")
+            .SubscribeToText(PlayerInfo);
         inventory.ObserveCountChanged().StartWith(inventory.Count).Subscribe(_ => {
             InventoryInfo.text = ToDebugString(inventory);
         });
