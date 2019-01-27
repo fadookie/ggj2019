@@ -29,4 +29,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndScreen.unity
     guid: 493a442a568214d319ebeef0c643e1f4
+  - enabled: 1
+    path: Assets/Scenes/PauseTest.unity
+    guid: ff9dd2fc73ec1493a94ac44603287f33
+  - enabled: 1
+    path: Assets/Scenes/pauseOverlay.unity
+    guid: f1206b4c66a0f4559b4a07ead7ea98a2
   m_configObjects: {}
