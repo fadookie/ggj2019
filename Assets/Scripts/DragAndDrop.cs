@@ -15,6 +15,7 @@ public class DragAndDrop : MonoBehaviour
   public SlotController slot;
   public Image dragImage;
   public ListController lc;
+  public TextScript textDisplay;
 
     // Start is called before the first frame update
     void Start()
@@ -77,7 +78,7 @@ public class DragAndDrop : MonoBehaviour
         GameObject.Destroy(itemObject);
         removeFromInventory(gdm,item);
         gdm.addPickup(item);
-
+        textDisplay.showText(item.DropText);
         item = null;
         itemObject = null;
 
