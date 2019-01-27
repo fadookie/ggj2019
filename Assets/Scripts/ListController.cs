@@ -17,15 +17,17 @@ public class ListController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
   {
-
-    for (int i = 0; i < 10; i++) {
-      GameObject item = Instantiate(itemPrefab) as GameObject;
-      ItemController controller = item.GetComponent<ItemController>();
+    var gameDataManager = GameObject.FindObjectOfType<GameDataManager>();
+    foreach (var item in gameDataManager.AllItems) {
+      GameObject i = Instantiate(itemPrefab) as GameObject;
+      ItemController controller = i.GetComponent<ItemController>();
       controller.Icon.sprite = testTexture;
-      controller.Name.text = "test"+i;
-      controller.Weight.text = "weight" + i;
+      controller.Name.text = item.Name;
+      controller.Weight.text = "weight" + item.Weight;
       controller.transform.SetParent(content.transform);
     }
+
+    itemPrefab.SetActive(false);
         
     }
 
