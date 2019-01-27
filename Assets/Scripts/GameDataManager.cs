@@ -14,12 +14,14 @@ public class GameDataManager : MonoBehaviour
     public Sprite[] itemSprites;
     public List<Item> AllItems;
     public int AllItemsWeight { get; private set; }
+    public int AllItemsValue { get; private set; }
     public Player Player;
     public GameObject playerObject;
     public GameObject pickupPrefab;
     private float startTime;
     private float endTime;
     private int nextId;
+    public AnimationCurve weightBurdenCurve;
 
     void Awake() {
         startTime = Time.time;
@@ -34,13 +36,18 @@ public class GameDataManager : MonoBehaviour
         var items = reader.read();
         AllItems = items;
         AllItemsWeight = AllItems.Aggregate(0, (acc, next) => acc + next.Weight);
+        AllItemsValue = AllItems.Aggregate(0, (acc, next) => acc + next.Value);
         Player = new Player();
         Debug.Log("Loaded items:");
         items.ForEach(Debug.Log);
 
         PopulatePlayerInventory();
         Debug.Log(string.Format("Populated Player: {0}", Player));
-        Debug.Log("inventory weight = " + Player.Encumbrance.Value);
+        Debug.Log($"inventory weight = {Player.InventoryWeight.Value}");
+    }
+
+    public float GetPlayerTunedWeightBurden(int inventoryWeight) {
+        return weightBurdenCurve.Evaluate(inventoryWeight / AllItemsWeight);
     }
 
     public void addPickup(Item item) {

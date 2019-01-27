@@ -17,7 +17,6 @@ public class PlayerBehaviour : MonoBehaviour
   private bool pickingup = false;
 
     public List<ItemPickup> itemToPickups;
-    public AnimationCurve weightBurdenCurve;
 
   
     void Start()
@@ -82,8 +81,7 @@ public class PlayerBehaviour : MonoBehaviour
         //direction.y = Input.GetAxis("Vertical");
 
         Vector2 size = new Vector2(1, 1);
-        var weightBurden = weightBurdenCurve.Evaluate(gdm.Player.Encumbrance.Value / gdm.AllItemsWeight);
-        float distance = Speed * (1 - weightBurden) * 0.05f * Time.deltaTime;
+        float distance = gdm.Player.Stats.Value.Speed * 0.05f * Time.deltaTime;
         int layerMask = LayerMask.GetMask("Solid Objects");
 
         ContactFilter2D contactFilter = new ContactFilter2D();

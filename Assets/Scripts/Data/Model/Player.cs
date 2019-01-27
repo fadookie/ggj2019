@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UniRx;
+using UnityEngine;
 
 namespace Data.Model
 {
@@ -24,21 +25,21 @@ namespace Data.Model
 
         public IReadOnlyReactiveProperty<Stats> Stats { get; }
 
-        public IReadOnlyReactiveProperty<int> Encumbrance { get; }
+        public IReadOnlyReactiveProperty<int> InventoryWeight { get; }
 
         public bool SlotHasItemEquipped(IReadOnlyReactiveProperty<Item> item) {
          return item.HasValue && item.Value != null;   
         }
         
         public Player() {
-            BaseStats = new Stats();
+            BaseStats = new Stats(100, 100, 100);
             Armor = new ReactiveProperty<Item>();
             Weapon = new ReactiveProperty<Item>();
             Shield = new ReactiveProperty<Item>();
             Accessory = new ReactiveProperty<Item>();
             Inventory = new ReactiveCollection<Item>();
 
-            Encumbrance = Observable.Merge(new[] {
+            InventoryWeight = Observable.Merge(new[] {
                     AllItemSlots.Merge().Select(_ => new Unit()),
                     Inventory.ObserveCountChanged().Select(_ => new Unit()),
                 })
@@ -52,7 +53,14 @@ namespace Data.Model
 
             Stats = AllItemSlots
                 .Merge()
-                .Select(_ => BaseStats + EquippedItemModifiers() + new Stats(0, 0, -Encumbrance.Value))
+                .CombineLatest(InventoryWeight, Tuple.Create)
+                .Select(x => {
+                    var modifiedStats = BaseStats + EquippedItemModifiers();
+                    var weightBurden = GameDataManager.instance.GetPlayerTunedWeightBurden(x.Item2);
+                    var finalStats = new Stats(modifiedStats.Hp, modifiedStats.Mp, modifiedStats.Speed * (1 - weightBurden));
+                    Debug.Log($"Update stats, modified:{modifiedStats} weightBurden:{weightBurden} finalStats:{finalStats}");
+                    return finalStats;
+                })
                 .ToReadOnlyReactiveProperty();
         }
 
@@ -64,7 +72,7 @@ namespace Data.Model
         }
 
         public override string ToString() {
-            return $"{nameof(Level)}: {Level}, {nameof(BaseStats)}: {BaseStats}, {nameof(Armor)}: {Armor}, {nameof(Weapon)}: {Weapon}, {nameof(Shield)}: {Shield}, {nameof(Accessory)}: {Accessory}, {nameof(AllItemSlots)}: {AllItemSlots}, {nameof(Inventory)}: {Inventory}, {nameof(Stats)}: {Stats}, {nameof(Encumbrance)}: {Encumbrance}";
+            return $"{nameof(Level)}: {Level}, {nameof(BaseStats)}: {BaseStats}, {nameof(Armor)}: {Armor}, {nameof(Weapon)}: {Weapon}, {nameof(Shield)}: {Shield}, {nameof(Accessory)}: {Accessory}, {nameof(AllItemSlots)}: {AllItemSlots}, {nameof(Inventory)}: {Inventory}, {nameof(Stats)}: {Stats}, {nameof(InventoryWeight)}: {InventoryWeight}";
         }
     }
 }
