@@ -19,12 +19,15 @@ namespace Data.Model
         public ReactiveProperty<Item> Accessory1 { get; }
         public ReactiveProperty<Item> Accessory2 { get; }
         
+        public IEnumerable<ReactiveProperty<Item>> AllItemSlots => new[]
+            {Armor, PrimaryHand, SecondaryHand, Shield, Accessory1, Accessory2};
+        
         public ReactiveCollection<Item> Inventory { get; }
 
         public IReadOnlyReactiveProperty<Stats> Stats { get; }
 
         public IReadOnlyReactiveProperty<int> Encumbrance { get; }
-
+        
         public Player() {
             BaseStats = new Stats();
             Armor = new ReactiveProperty<Item>();
@@ -45,12 +48,9 @@ namespace Data.Model
                 .ToReadOnlyReactiveProperty();
         }
 
-        private IEnumerable<ReactiveProperty<Item>> AllItemSlots => new[]
-            {Armor, PrimaryHand, SecondaryHand, Shield, Accessory1, Accessory2};
-            
         private Stats EquippedItemModifiers() {
             return AllItemSlots
-                .Where(x => x.HasValue)
+                .Where(x => x.HasValue && x.Value != null)
                 .Select(x => x.Value.Stats)
                 .Aggregate(new Stats(), (collector, next) => collector + next);
         }

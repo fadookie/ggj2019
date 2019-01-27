@@ -10,8 +10,7 @@ public class GameDataManager : MonoBehaviour
     public List<Item> AllItems;
     public Player Player;
     
-    // Start is called before the first frame update
-    void Start() {
+    void Awake() {
         var reader = new Reader();
         var items = reader.read();
         AllItems = items;
