@@ -6,8 +6,6 @@ public class ItemPickup : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
 
-
-
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Player")
