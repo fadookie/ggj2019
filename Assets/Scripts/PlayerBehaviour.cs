@@ -16,8 +16,10 @@ public class PlayerBehaviour : MonoBehaviour
 
     public ItemPickup itemToPickup;
 
+  
     void Start()
     {
+        GameDataManager.instance.playerObject = gameObject;
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;

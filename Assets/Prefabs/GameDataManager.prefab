@@ -55,3 +55,6 @@ MonoBehaviour:
   - {fileID: 21300008, guid: 8bc7821278ee944a09bd693e939ed3a8, type: 3}
   - {fileID: 21300014, guid: 8bc7821278ee944a09bd693e939ed3a8, type: 3}
   AllItems: []
+  playerObject: {fileID: 0}
+  pickupPrefab: {fileID: 7695684873565598604, guid: ae9e71bbf64b85f469116d118e2939a6,
+    type: 3}

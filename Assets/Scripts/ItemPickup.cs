@@ -9,6 +9,7 @@ public class ItemPickup : MonoBehaviour
 
     private void Start()
     {
+      
         int artSprite = GameDataManager.instance.AllItems.Where(it => itemID == it.Id).Select(it => it.Art).First();
         Sprite sprite = GameDataManager.instance.itemSprites[artSprite];
 

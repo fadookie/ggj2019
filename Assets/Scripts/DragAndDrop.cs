@@ -33,7 +33,7 @@ public class DragAndDrop : MonoBehaviour
       if (!justdown && item != null)
       {
         //set drag image icon here
-
+        dragImage.sprite = gdm.itemSprites[item.Art];
         //-----
         justdown = true;
         dragImage.enabled = true;
