@@ -59,3 +59,27 @@ MonoBehaviour:
   playerObject: {fileID: 0}
   pickupPrefab: {fileID: 7695684873565598604, guid: ae9e71bbf64b85f469116d118e2939a6,
     type: 3}
+  weightBurdenCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0010070801
+      value: 0.10559082
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1.0020752
+      value: 0.8989563
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

@@ -7,12 +7,12 @@ namespace Data.Model
     {
         public int Hp { get; }
         public int Mp { get; }
-        public int Speed { get; }
+        public float Speed { get; }
 
         public Stats() {
         }
 
-        public Stats(int hp, int mp, int speed) {
+        public Stats(int hp, int mp, float speed) {
             Hp = hp;
             Mp = mp;
             Speed = speed;
