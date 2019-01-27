@@ -44,6 +44,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSprites:
-  - {fileID: 21300000, guid: 4513a09043658444e92d44a4d0ed5ee2, type: 3}
-  - {fileID: 21300000, guid: 0fc4871fc44093d459a3032a36304bc3, type: 3}
-  - {fileID: 21300000, guid: 821a1bbb9d8abea4f855c08be2cf8571, type: 3}
+  - {fileID: 21300050, guid: 5cefda7b15bdf4b199c935b0b2a0e0aa, type: 3}
+  - {fileID: 21300042, guid: fe8c10f77494e4a18acacbb152b27310, type: 3}
+  - {fileID: 21300000, guid: d6a055f726d96475e8d16da71f63eb3e, type: 3}
+  - {fileID: 21300008, guid: d6a055f726d96475e8d16da71f63eb3e, type: 3}
+  - {fileID: 21300016, guid: 5cefda7b15bdf4b199c935b0b2a0e0aa, type: 3}
+  - {fileID: 21300010, guid: 5cefda7b15bdf4b199c935b0b2a0e0aa, type: 3}
+  - {fileID: 21300000, guid: c1853a6a3a2c44d9db44125d3cea1d9d, type: 3}
+  - {fileID: 21300004, guid: c1853a6a3a2c44d9db44125d3cea1d9d, type: 3}
+  - {fileID: 21300008, guid: 8bc7821278ee944a09bd693e939ed3a8, type: 3}
+  - {fileID: 21300014, guid: 8bc7821278ee944a09bd693e939ed3a8, type: 3}
+  AllItems: []
