@@ -15,8 +15,6 @@ public class TempInventoryTester : MonoBehaviour
     public Text PlayerInfo;
     public Text InventoryInfo;
 
-    private int nextId;
-
     // Start is called before the first frame update
     void Start() {
         var gameDataManager = FindObjectOfType<GameDataManager>();
@@ -24,7 +22,7 @@ public class TempInventoryTester : MonoBehaviour
         var inventory = player.Inventory;
         
         AddItem.OnClickAsObservable().Subscribe(_ => {
-            inventory.Add(GenerateTestItem());
+            inventory.Add(gameDataManager.GenerateTestItem());
         });
         DropItem.OnClickAsObservable().Subscribe(_ => {
             inventory.RemoveAt(0);
@@ -33,26 +31,12 @@ public class TempInventoryTester : MonoBehaviour
             var rand = new System.Random();
             var toSkip = rand.Next(0, player.AllItemSlots.Count());
             var randomSlot = player.AllItemSlots.Skip(toSkip).Take(1).First();
-            randomSlot.Value = GenerateTestItem();
+            randomSlot.Value = gameDataManager.GenerateTestItem();
         });
 
         player.Stats.SubscribeToText(PlayerInfo);
-        inventory.ObserveCountChanged().Subscribe(_ => {
+        inventory.ObserveCountChanged().StartWith(inventory.Count).Subscribe(_ => {
             InventoryInfo.text = inventory.Aggregate("", (collector, next) => collector + next.ToString() + "\n");
         });
-    }
-
-    Item GenerateTestItem() {
-        var item = new Item {
-            Id = nextId,
-            Name = $"Item {nextId}",
-            Value = nextId,
-            Weight = nextId,
-            HpMod = nextId,
-            MpMod = nextId,
-            SpeedMod = nextId,
-        };
-        ++nextId;
-        return item;
     }
 }
