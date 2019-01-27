@@ -14,11 +14,14 @@ public class GameDataManager : MonoBehaviour
     public Player Player;
     public GameObject playerObject;
     public GameObject pickupPrefab;
+
+  private float startTime;
+  private float endTime;
     
     private int nextId;
     
     void Awake() {
-
+    startTime = Time.time;
         // Singleton setup;
         if (instance != null)
         {
@@ -80,4 +83,19 @@ public class GameDataManager : MonoBehaviour
         ++nextId;
         return item;
     }
+
+  /// <summary>
+  /// call when win condition is achieved
+  /// </summary>
+  public void endTimeCount() {
+    endTime = Time.time;
+  }
+
+  /// <summary>
+  /// gets the total time it too from start to finish - must have called endTimeCount when victory is triggered
+  /// </summary>
+  /// <returns></returns>
+  public float totalTime() {
+    return endTime - startTime;
+  }
 }
