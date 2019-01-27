@@ -33,6 +33,8 @@ public class GameDataManager : MonoBehaviour
         }
         instance = this;
 
+        DontDestroyOnLoad(gameObject);
+
         var reader = new Reader();
         var items = reader.read();
         AllItems = items;

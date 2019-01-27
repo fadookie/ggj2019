@@ -6,10 +6,15 @@ public class YouWin : MonoBehaviour
 {
     void Start()
     {
-        var gdm = FindObjectOfType<GameDataManager>();
-        int value = gdm.AllItemsValue;
+        var gdm = GameDataManager.instance;
+        if (gdm == null)
+        {
+            Debug.LogError("Missing GameDataManager in scene.");
+        }
+
+        long value = gdm.Player.GetCombinedValueOfItems();
         UnityEngine.UI.Text valueText = transform.Find("Value").GetComponent<UnityEngine.UI.Text>();
-        valueText.text = value.ToString() + " Gold";
+        valueText.text = "Gold value : \n" + value.ToString();
     }
 
     void Update()
