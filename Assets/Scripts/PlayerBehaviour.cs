@@ -122,7 +122,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             ItemPickup itemToPickup = itemToPickups.First();
         itemToPickups.Remove(itemToPickup);
-            Item item = GameDataManager.instance.AllItems.Where(it => (it != null && it.Id == itemToPickup.itemID+1)).FirstOrDefault();
+            Item item = GameDataManager.instance.AllItems.Where(it => (it != null && it.Id == itemToPickup.itemID)).FirstOrDefault();
 
             if (item == null)
             {

@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test.unity
     guid: 086f1b9236ac04b94a447aaa4195434a
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 6bcd66482e3f6ab47aae8066a5876adc
+  - enabled: 1
+    path: Assets/Scenes/InventoryTest.unity
+    guid: a57cb61f16b94a9458a64d3082da0776
   m_configObjects: {}
