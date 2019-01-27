@@ -29,6 +29,15 @@ public class DragAndDrop : MonoBehaviour
     var gdm = GameObject.FindObjectOfType<GameDataManager>();
     if (Input.GetMouseButton(0))
     {
+      if (!draggin && item == null && slot != null) {
+        if (slot.Item != null)
+        {
+
+          gdm.Player.Inventory.Add(slot.Item);
+          lc.addItemToInventory(slot.Item);
+          slot.setItem(null);
+        }
+      }
       Debug.Log("draggin");
       draggin = true;
       if (!justdown && item != null)
@@ -45,14 +54,15 @@ public class DragAndDrop : MonoBehaviour
     else if (!Input.GetMouseButton(0)) {
       dragImage.enabled = false;
       draggin = false;
-      
-      if (slot != null && item != null )
+
+      if (slot != null && item != null)
       {
 
         if (slot.type == item.Type)
         {
           //slot item
-          if (slot.Item != null) {
+          if (slot.Item != null)
+          {
 
             gdm.Player.Inventory.Add(slot.Item);
             lc.addItemToInventory(slot.Item);
@@ -65,7 +75,8 @@ public class DragAndDrop : MonoBehaviour
           itemObject = null;
           Debug.Log("slotted item");
         }
-        else {
+        else
+        {
           //failed to slot play sound?
           item = null;
           itemObject = null;
@@ -76,16 +87,17 @@ public class DragAndDrop : MonoBehaviour
         //throw item on trash
         Debug.Log("trashed item");
         GameObject.Destroy(itemObject);
-        removeFromInventory(gdm,item);
+        removeFromInventory(gdm, item);
         gdm.addPickup(item);
         textDisplay.showText(item.DropText);
         item = null;
         itemObject = null;
 
       }
-      else if (item != null) {
+      else if (item != null)
+      {
         //do nothing with item
-//        Debug.Log("did nothing with item");
+        //        Debug.Log("did nothing with item");
       }
       justdown = false;
     }

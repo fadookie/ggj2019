@@ -10,6 +10,8 @@ public class SlotController : MonoBehaviour , IPointerEnterHandler, IPointerExit
   [Tooltip("armor=0 weapon=1 shield=2 accessory=3")]
   public int type = ItemTypes.ARMOR;
   public Image itemImage;
+
+
   public Item Item { get; set; }
     
     // Start is called before the first frame update
@@ -41,6 +43,10 @@ public class SlotController : MonoBehaviour , IPointerEnterHandler, IPointerExit
     {
       itemImage.sprite = gameDataManager.itemSprites[item.Art];
       Item = item;
+    }
+    else if (item == null) {
+      itemImage.sprite = gameDataManager.noImage;
+      Item = null;
     }
   }
 
