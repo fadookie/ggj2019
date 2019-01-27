@@ -7,6 +7,9 @@ using UnityEngine;
 public class PlayerBehaviour : MonoBehaviour
 {
     public int HP = 100, MP = 100, Speed = 100;
+
+    public bool isOverWeight;
+
     private Rigidbody2D rb;
     private Animator animator;
     private int dir = 0;
@@ -65,7 +68,8 @@ public class PlayerBehaviour : MonoBehaviour
         //direction.y = Input.GetAxis("Vertical");
 
         Vector2 size = new Vector2(1, 1);
-        float distance = Speed * 0.05f * Time.deltaTime;
+        float weightBurden = isOverWeight ? 0.90f : 0;
+        float distance = Speed * (1 - weightBurden) * 0.05f * Time.deltaTime;
         int layerMask = LayerMask.GetMask("Solid Objects");
 
         ContactFilter2D contactFilter = new ContactFilter2D();
