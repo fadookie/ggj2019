@@ -20,6 +20,6 @@ public class HUDBehaviour : MonoBehaviour
                 hpText.text = stats.Hp.ToString();
                 mpText.text = stats.Mp.ToString();
                 speedText.text = stats.Speed.ToString();
-            });
+            }).AddTo(this);
     }
 }

@@ -70,7 +70,7 @@ public class GameDataManager : MonoBehaviour
         Player.Shield.Value = AllItems.First(x => x.Type == ItemTypes.SHIELD);
         Player.Accessory.Value = AllItems.First(x => x.Type == ItemTypes.ACCESSORY);
         var equippedItems = Player.AllItemSlots.Select(x => x.Value);
-        AllItems.Where(x => !equippedItems.Contains(x)).ToList().ForEach(Player.Inventory.Add);
+        AllItems.Where(x => !equippedItems.Contains(x)).Take(AllItems.Count / 2).ToList().ForEach(Player.Inventory.Add);
     }
 
     public Item GenerateTestItem() {

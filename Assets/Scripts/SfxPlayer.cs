@@ -32,14 +32,16 @@ public class SfxPlayer : MonoBehaviour
     }
 
     void Start() {
+        if (GameDataManager.instance == null) return;
+            
         GameDataManager.instance.Player.Inventory.ObserveAdd().AsObservable()
             .Subscribe(_ => {
                 PlaySound(Sound.Pickup);
-            });
+            }).AddTo(this);
         GameDataManager.instance.Player.Inventory.ObserveRemove().AsObservable()
             .Subscribe(_ => {
                 PlaySound(Sound.Drop);
-            });
+            }).AddTo(this);
     }
 
     public void PlaySound(Sound sound) {
